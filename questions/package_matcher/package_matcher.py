@@ -3,7 +3,8 @@
 
 # Description
 
-# As the owner of an online store, you need to fulfill orders everyday. To optimize the packing of each order, you decide to write an algorithm to match boxes and items based on their respective sizes.
+# As the owner of an online store, you need to fulfill orders everyday.
+# To optimize the packing of each order, you decide to write an algorithm to match boxes and items based on their respective sizes.
 # You have access to the following two boxes:
 # - A medium box (identifier: M)
 # - A large box (identifier: L)
@@ -24,7 +25,8 @@
 # ["Cam", "Cam", "Game", "Game"] -> [L: ["Cam", "Cam"], L: ["Game", "Game"]]
 # ["Cam", "Cam", "Cam", "Game", "Game", "Game", "Cam", "Blue"] ->
 # [L: ["Cam", "Cam"], L: ["Cam", "Cam"], L: ["Game", "Game"], L: ["Game"], L: ["Blue"]]
-# ["Cam", "Cam", "Cam", "Game", "Game", "Cam", "Cam", "Blue", "Blue"] -> [L: ["Cam", "Cam"] , L: ["Cam", "Cam"] , M: ["Cam"] , L: ["Game", "Game"] , L: ["Blue"] , L: ["Blue"]]
+# ["Cam", "Cam", "Cam", "Game", "Game", "Cam", "Cam", "Blue", "Blue"] -> 
+# [L: ["Cam", "Cam"] , L: ["Cam", "Cam"] , M: ["Cam"] , L: ["Game", "Game"] , L: ["Blue"] , L: ["Blue"]]
 
 import sys
 
@@ -73,6 +75,7 @@ class PackageMatcher:
 
             if (product_counts[key] == 0):
                 continue
+            # need to use a paritall filled large 
             elif items_in_large_pkg > product_counts[key] and items_in_medium_pkg < product_counts[key]:
                 packages += [{"L": [key] * product_counts}]
                 continue
